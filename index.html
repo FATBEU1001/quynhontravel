@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS SLIDE</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <style></style>
+    </head>
+
+    <body>
+        <div class="slide">
+            <div class="slide-inner">
+                <div class="slide-item active" style="background-image: url(img/welcome.png)">
+                    <div class="slide-caption">
+                        <h3>My favorite tourist destinations</h3>
+                        <h2>QUY NHON CITY</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-13.jpg)">
+                    <div class="slide-caption">
+                        <h3>Wanna travel to Quy Nhon</h3>
+                        <h2>You have to take 12 hours</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-3.jpg)">
+                    <div class="slide-caption">
+                        <h3>That is a really terrible</h3>
+                        <h2>Car sick person</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-4.jpg)">
+                    <div class="slide-caption">
+                        <h3>First feeling was that</h3>
+                        <h2>Weather was to hot</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-5.jpg)">
+                    <div class="slide-caption">
+                        <h3>Went to</h3>
+                        <h2>Local market to find local food</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-6.jpg)">
+                    <div class="slide-caption">
+                        <h3>The food</h3>
+                        <h2>Cheap & delicious</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-7.jpg)">
+                    <div class="slide-caption">
+                        <h3>The bowl of</h3>
+                        <h2>"Banh Canh Cha ca"</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-8.jpg)">
+                    <div class="slide-caption">
+                        <h3>The people</h3>
+                        <h2>Friendly and hospitable</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-2.jpeg)">
+                    <div class="slide-caption">
+                        <h3>Talk about</h3>
+                        <h2>The landscapes</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-9.jpg)">
+                    <div class="slide-caption">
+                        <h3>Has a lot of</h3>
+                        <h2>Island - beautiful & pristine</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-10.jpg)">
+                    <div class="slide-caption">
+                        <h3>The marine ecosystems</h3>
+                        <h2>Diversity & beautiful coral & fish</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-11.jpg)">
+                    <div class="slide-caption">
+                        <h3>Wonderfull place</h3>
+                        <h2>Enjoy outdoor activity</h2>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(img/img-12.jpg)">
+                    <div class="slide-caption">
+                        <h3>A visit to Quy Nhon</h3>
+                        <h2>Unforgettable experience</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-controll">
+                <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="next"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+        <script>
+            const listImg = document.querySelectorAll(".slide .slide-item");
+            const prev = document.querySelector(".prev");
+            const next = document.querySelector(".next");
+            let currentIndex = 0;
+            let prevIndex = 0;
+
+            function displaySlide() {
+                listImg[currentIndex].classList.add("active");
+                listImg[prevIndex].classList.remove("active");
+            }
+            next.addEventListener("click", function () {
+                if (currentIndex < listImg.length - 1) {
+                    currentIndex++;
+                    prevIndex = currentIndex - 1;
+                } else {
+                    currentIndex = 0;
+                    prevIndex = listImg.length - 1;
+                }
+                displaySlide();
+            });
+            prev.addEventListener("click", function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    prevIndex = currentIndex + 1;
+                } else {
+                    currentIndex = listImg.length - 1;
+                    prevIndex = 0;
+                }
+                displaySlide();
+            });
+        </script>
+    </body>
+</html>
